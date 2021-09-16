@@ -5,7 +5,7 @@ import { Log, JoseUtil, Timer } from "./utils";
 import { INavigator, NavigatorParams, IFrameNavigator, PopupNavigator, RedirectNavigator } from "./navigators";
 import { OidcClient, CreateSigninRequestArgs, CreateSignoutRequestArgs } from "./OidcClient";
 import { UserManagerSettings, UserManagerSettingsStore } from "./UserManagerSettings";
-import { User } from "./User";
+import { User, UserProfile } from "./User";
 import { UserManagerEvents } from "./UserManagerEvents";
 import { SilentRenewService } from "./SilentRenewService";
 import { SessionMonitor } from "./SessionMonitor";
@@ -161,8 +161,8 @@ export class UserManager {
             id_token_hint: this.settings.includeIdTokenInSilentRenew && user ? user.id_token : undefined
         };
         if (user && this.settings.validateSubOnSilentRenew) {
-            Log.debug("UserManager.signinSilent, subject prior to silent renew: ", user.profile.sub);
-            args.current_sub = user.profile.sub;
+            Log.debug("UserManager.signinSilent, subject prior to silent renew: ", user.profile?.sub);
+            args.current_sub = user.profile?.sub;
         }
 
         return this._signinSilentIframe(args);
@@ -198,10 +198,10 @@ export class UserManager {
         return user;
     }
 
-    protected async _validateIdTokenFromTokenRefreshToken(profile: any, id_token: string): Promise<void> {
+    protected async _validateIdTokenFromTokenRefreshToken(profile: UserProfile, id_token: string): Promise<void> {
         const issuer = await this.metadataService.getIssuer();
         const now = Timer.getEpochTime();
-        const payload = await JoseUtil.validateJwtAttributes(id_token, issuer, this.settings.client_id, this.settings.clockSkewInSeconds, now);
+        const payload = JoseUtil.validateJwtAttributes(id_token, issuer, this.settings.client_id, this.settings.clockSkewInSeconds, now);
         if (!payload) {
             Log.error("UserManager._validateIdTokenFromTokenRefreshToken: Failed to validate id_token");
             throw new Error("Failed to validate id_token");

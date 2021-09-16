@@ -277,7 +277,7 @@ export class ResponseValidator {
         Log.debug("ResponseValidator._validateIdTokenAttributes: Validaing JWT attributes; using clock skew (in seconds) of: ", clockSkewInSeconds);
 
         const now = Timer.getEpochTime();
-        const payload = await JoseUtil.validateJwtAttributes(id_token, issuer, audience, clockSkewInSeconds, now);
+        const payload = JoseUtil.validateJwtAttributes(id_token, issuer, audience, clockSkewInSeconds, now);
         if (state.nonce && state.nonce !== payload.nonce) {
             Log.error("ResponseValidator._validateIdTokenAttributes: Invalid nonce in id_token");
             throw new Error("Invalid nonce in id_token");
@@ -341,7 +341,7 @@ export class ResponseValidator {
             throw new Error("Failed to parse id_token");
         }
 
-        const payload: any = jwt.payload;
+        const payload = jwt.payload;
         if (state.nonce !== payload.nonce) {
             Log.error("ResponseValidator._validateIdToken: Invalid nonce in id_token");
             throw new Error("Invalid nonce in id_token");
@@ -357,7 +357,7 @@ export class ResponseValidator {
 
         const audience = state.client_id;
         const clockSkewInSeconds = this._settings.clockSkewInSeconds;
-        Log.debug("ResponseValidator._validateIdToken: Validaing JWT; using clock skew (in seconds) of: ", clockSkewInSeconds);
+        Log.debug("ResponseValidator._validateIdToken: Validating JWT; using clock skew (in seconds) of: ", clockSkewInSeconds);
 
         JoseUtil.validateJwt(id_token, key, issuer, audience, clockSkewInSeconds);
         Log.debug("ResponseValidator._validateIdToken: JWT validation successful");

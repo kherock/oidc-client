@@ -16,7 +16,7 @@ export class PopupWindow implements IWindow {
     private _reject!: (reason?: any) => void;
     private _popup: Window | null;
     private _checkForPopupClosedTimer: number | null;
-    private _id: any;
+    private _id: string | undefined;
 
     public constructor(params: NavigatorParams) {
         this._promise = new Promise((resolve, reject) => {

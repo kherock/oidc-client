@@ -3,6 +3,13 @@
 
 import { Log, Timer } from "./utils";
 
+export interface UserProfile {
+    sub?: string;
+    sid?: string;
+    azp?: string;
+    auth_time?: any;
+}
+
 export class User {
     public id_token: string;
     public session_state: string | undefined;
@@ -10,7 +17,7 @@ export class User {
     public refresh_token: string | undefined;
     public token_type: string;
     public scope: string;
-    public profile: any;
+    public profile: UserProfile;
     public expires_at: number;
 
     public constructor({
