@@ -9,8 +9,8 @@ module.exports = {
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
     favicon: "img/favicon.ico",
-    organizationName: "authts", // Usually your GitHub org/user name.
-    projectName: "oidc-client-ts", // Usually your repo name.
+    organizationName: "kherock", // Usually your GitHub org/user name.
+    projectName: "oidc-client", // Usually your repo name.
     plugins: [
         [
             "docusaurus-plugin-typedoc",
@@ -37,7 +37,7 @@ module.exports = {
                     label: "API",
                 },
                 {
-                    href: "https://github.com/authts/oidc-client-ts",
+                    href: "https://github.com/kherock/oidc-client",
                     label: "GitHub",
                     position: "right",
                 },
@@ -60,7 +60,7 @@ module.exports = {
                     items: [
                         {
                             label: "GitHub",
-                            href: "https://github.com/authts/oidc-client-ts",
+                            href: "https://github.com/kherock/oidc-client",
                         },
                     ],
                 },
@@ -81,7 +81,7 @@ module.exports = {
                     sidebarPath: require.resolve("./sidebars.js"),
                     routeBasePath: "/",
                     editUrl:
-						"https://github.com/authts/oidc-client-ts/edit/master/docs/",
+                        "https://github.com/kherock/oidc-client/edit/master/docs/",
                 },
                 theme: {
                     customCss: require.resolve("./src/css/custom.css"),

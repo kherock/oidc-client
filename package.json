@@ -1,16 +1,16 @@
 {
-  "name": "oidc-client-ts",
+  "name": "@kherock/oidc-client",
   "version": "2.0.0-beta.2",
   "description": "OpenID Connect (OIDC) & OAuth2 client library",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com:authts/oidc-client-ts.git"
+    "url": "git+https://github.com/kherock/oidc-client.git"
   },
-  "homepage": "https://github.com/authts/oidc-client-ts#readme",
+  "homepage": "https://github.com/kherock/oidc-client#readme",
   "license": "Apache-2.0",
-  "main": "dist/oidc-client-ts.cjs",
-  "module": "dist/oidc-client-ts.mjs",
-  "types": "dist/oidc-client-ts.d.ts",
+  "main": "dist/oidc-client.cjs",
+  "module": "dist/oidc-client.mjs",
+  "types": "dist/oidc-client.d.ts",
   "workspaces": [
     "samples/*",
     "website"
@@ -27,10 +27,10 @@
   ],
   "scripts": {
     "build": "npm run build-esm && npm run build-node && npm run build-browser && npm run build-browser-min && npm run build-types",
-    "build-esm": "esbuild src/index.ts --bundle --outfile=dist/oidc-client-ts.mjs --format=esm",
-    "build-node": "esbuild src/index.ts --bundle --outfile=dist/oidc-client-ts.cjs --platform=node",
-    "build-browser": "esbuild src/index.ts --bundle --outfile=dist/oidc-client-ts.js --platform=browser --global-name=oidc",
-    "build-browser-min": "npm run build-browser -- --minify --outfile=dist/oidc-client-ts.min.js",
+    "build-esm": "esbuild src/index.ts --bundle --outfile=dist/oidc-client.mjs --format=esm",
+    "build-node": "esbuild src/index.ts --bundle --outfile=dist/oidc-client.cjs --platform=node",
+    "build-browser": "esbuild src/index.ts --bundle --outfile=dist/oidc-client.js --platform=browser --global-name=oidc",
+    "build-browser-min": "npm run build-browser -- --minify --outfile=dist/oidc-client.min.js",
     "build-types": "tsc --emitDeclarationOnly && api-extractor run",
     "prepack": "npm run build",
     "test": "tsc -p test/unit/tsconfig.json && jest",

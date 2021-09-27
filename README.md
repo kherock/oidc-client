@@ -1,7 +1,7 @@
 # oidc-client-ts
 
 [![Stable Release](https://img.shields.io/npm/v/oidc-client-ts.svg)](https://npm.im/oidc-client-ts)
-![Pipeline](https://github.com/authts/oidc-client-ts/workflows/Release/badge.svg)
+![Pipeline](https://github.com/kherock/oidc-client/workflows/Release/badge.svg)
 
 Library to provide OpenID Connect (OIDC) and OAuth2 protocol support for client-side, browser-based JavaScript client
 applications. Also included is support for user session and access token management.
@@ -30,14 +30,14 @@ Some initial docs are [here](https://github.com/IdentityModel/oidc-client-js/wik
 Using [npm](https://npmjs.org/)
 
 ```console
-$ npm install oidc-client-ts
+$ npm install oidc-client
 ```
 
 ## Building the Source
 
 ```console
-$ git clone https://github.com/authts/oidc-client-ts.git
-$ cd oidc-client-ts
+$ git clone https://github.com/kherock/oidc-client.git
+$ cd oidc-client
 $ npm install
 $ npm run build
 ```
@@ -70,4 +70,4 @@ We appreciate feedback and contribution to this repo!
 
 ## License
 
-This project is licensed under the Apache-2.0 license. See the [LICENSE](https://github.com/authts/oidc-client-ts/blob/main/LICENSE) file for more info.
+This project is licensed under the Apache-2.0 license. See the [LICENSE](https://github.com/kherock/oidc-client/blob/main/LICENSE) file for more info.
